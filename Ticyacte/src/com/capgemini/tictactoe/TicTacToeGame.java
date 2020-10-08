@@ -399,5 +399,28 @@ public class TicTacToeGame {
 		showBoard();
 		toss = doToss();
 		turnUntilWeGetWinner();
+		
+		// ability for player to play another game
+		while(true)
+		{
+			System.out.println("Enter 1 to play one more game");
+			System.out.println("Enter 2 to  exit game");
+			Scanner scn = new Scanner(System.in);
+			int option = scn.nextInt();
+			if (option == 1)
+			{
+				System.out.println("Welcome to  another tictactoe  board game");
+				board = creatingBoard();
+				allowPlayerToChoose();
+				showBoard();
+				toss = doToss();
+				turnUntilWeGetWinner();
+			}
+			else
+			{
+				System.out.println("You have exited from the game");
+				break;
+			}
+		}
 	}
 }
