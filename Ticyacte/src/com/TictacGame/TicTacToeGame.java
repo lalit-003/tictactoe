@@ -1,19 +1,23 @@
-package Tictac;
+package com.TictacGame;
 
-public class ticTacToeGame {
+public class TicTacToeGame {
 
-	 char[] board = new char[10];
+	static  char[] board = new char[10];
 	
-	 public void Creating_TicTacToeBorad_UC1() {
+	 //creating board char array and intialising it//
+	 public static char[]  creatingBoard() {
 
 
 		for (int i = 1; i < board.length; i++) {
 			board[i] = ' ';
 		}
+		return board;
 
 	}
 
 	public static void main(String args[]) {
 
+		System.out.println("Welcome to tic tac board");
+		board = creatingBoard();
 	}
 }
