@@ -60,6 +60,8 @@ public class TicTacToeGame {
 		System.out.println("Enter the empty position(between 1-9) where you wants to make the move ");
 		Scanner sc = new Scanner(System.in);
 		int position = sc.nextInt();
+		if(position>=1 && position <=9)
+		{
 		if(board[position]==' ')
 		{
 			board[position] = playerSymbol;
@@ -69,6 +71,13 @@ public class TicTacToeGame {
 		{
 			System.out.println("Invalid move, position is not empty");
 		}
+		}
+		else
+		{
+			System.out.println("You entered a invalid position");
+
+		}
+	
 
 	}
 
