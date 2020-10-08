@@ -7,7 +7,6 @@ public class TicTacToeGame {
 	static  char[] board = new char[10];
 	private static char cross ='X';
 	private static char zero ='O';
-	private static char chooseSymbol;
 	private static char playerSymbol;
 	private static char computerSymbol;
 	
@@ -25,29 +24,34 @@ public class TicTacToeGame {
 
 	}
 	 
-	 //allowing player to choose symbol
+	 //allowing player to choose symbol method 
 	 private static void allowPlayerToChoose()
 	 {
 		 System.out.println("Enter the symbol X or O you want to choose");
 		 Scanner sc = new Scanner(System.in);
 		String input = sc.nextLine();
-		chooseSymbol = input.charAt(0);
+		playerSymbol = input.charAt(0);
 		
-		if(chooseSymbol == cross)
+		if(playerSymbol == cross)
 		{
 			playerSymbol = cross;
 			computerSymbol = zero;
+			System.out.println("player symbol is : " + playerSymbol);
+
 		}
-		else if(chooseSymbol == zero)
+		else if(playerSymbol == zero)
 		{
 			playerSymbol = zero;
 			computerSymbol = cross;
+			System.out.println("player symbol is : " + playerSymbol);
+
 		}
 		else
 		{
 			System.out.println("Invalid input");
 		}
-
+		
+		
 		 
 	 }
 	 
