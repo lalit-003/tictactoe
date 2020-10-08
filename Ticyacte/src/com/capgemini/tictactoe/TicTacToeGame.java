@@ -391,7 +391,7 @@ public class TicTacToeGame {
 		choice = firstChoice();
 		return choice;
 	}
-
+//Uc12
 	public static void main(String args[]) {
 		System.out.println("Welcome to tic tac board");
 		board = creatingBoard();
