@@ -76,8 +76,13 @@ public class TicTacToeGame {
 	// modified method so that computer will play its turn automatically and will block if player is winning
 	public static void computerMove() {
 		int position;
+		int posiToWin = computerWinningPosition();
 		int posiToBlock = blockPosition();
-		if(posiToBlock == 0)
+		if(posiToWin !=0)
+		{
+			position = posiToWin;
+		}
+		else if(posiToBlock == 0)
 		{
 	      position = (int) Math.floor(Math.random() * 10) % 10;
 		while (board[position] != ' ') {
@@ -236,7 +241,65 @@ public class TicTacToeGame {
 
 		return positionToBlock;
 	}
+	
+	public static int computerWinningPosition()
+	{
+		int winningPosition = 0 ;
+		// finding winning condition for all rows , columns and diagnols
+		if (board[1] == playerSymbol && board[2] == playerSymbol && board[3] == ' ') 
+		winningPosition = 3;
+		if (board[2] == computerSymbol && board[3] == computerSymbol && board[1] == ' ' ) 
+			winningPosition = 1;
+		if (board[1] == computerSymbol && board[3] == computerSymbol && board[2] == ' ' ) 
+			winningPosition = 2;
+		if (board[4] == computerSymbol && board[5] == playerSymbol && board[6] == ' ' ) 
+		winningPosition = 6;
+		if (board[4] == computerSymbol && board[6] == computerSymbol && board[5] == ' ' ) 
+			winningPosition = 5;
+		if (board[5] == computerSymbol && board[6] == playerSymbol  && board[4] == ' ') 
+			winningPosition = 4;
+		if (board[7] == computerSymbol && board[8] == computerSymbol && board[9] == ' ' ) 
+		  winningPosition = 9;
+		if (board[7] == playerSymbol && board[9] == playerSymbol  && board[8] == ' ') 
+			winningPosition = 8;
+		if (board[8] == computerSymbol && board[9] == computerSymbol  && board[7] == ' ') 
+			  winningPosition = 7;
+		if (board[1] == computerSymbol && board[4] == computerSymbol && board[7] == ' ' ) 
+		winningPosition = 7;
+		if (board[1] == computerSymbol && board[7] == computerSymbol  && board[4] == ' ') 
+			winningPosition = 4;
+		if (board[4] == computerSymbol && board[7] == computerSymbol  && board[1] == ' ') 
+			winningPosition = 1;
+		if (board[2] == computerSymbol && board[5] == computerSymbol && board[8] == ' ') 
+		winningPosition =8;
+		if (board[2] == computerSymbol && board[8] == computerSymbol  && board[5] == ' ') 
+			winningPosition =5;
+		if (board[5] == playerSymbol && board[8] == computerSymbol  && board[2] == ' ') 
+			winningPosition =8;
+		if (board[3] == playerSymbol && board[6] == computerSymbol && board[9] == ' ' ) 
+			winningPosition =9;
+		if (board[3] == computerSymbol && board[9] == playerSymbol && board[6] == ' ') 
+			  winningPosition =6;
+		if (board[6] == playerSymbol && board[9] == playerSymbol && board[3] == ' ' ) 
+			  winningPosition =3;
+		if (board[1] == playerSymbol && board[5] == computerSymbol && board[9] == ' ') 
+		winningPosition = 9;
+		if (board[5] == playerSymbol && board[9] == computerSymbol && board[1] == ' ') 
+			winningPosition = 1;
+		if (board[1] == playerSymbol && board[9] == computerSymbol && board[5] == ' ') 
+			winningPosition = 5;
+		if (board[3] == computerSymbol && board[5] == computerSymbol && board[7] == ' ') 
+		winningPosition = 7;
+		if (board[3] == computerSymbol && board[7] == computerSymbol && board[5] == ' ') 
+			winningPosition = 5;
+		if (board[5] == computerSymbol && board[7] == computerSymbol && board[3] == ' ') 
+			winningPosition = 3;
 
+		return winningPosition;
+	}
+
+	
+	
 	public static void main(String args[]) {
 		System.out.println("Welcome to tic tac board");
 		board = creatingBoard();
