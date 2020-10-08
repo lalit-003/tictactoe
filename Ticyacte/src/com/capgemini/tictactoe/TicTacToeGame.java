@@ -79,18 +79,15 @@ public class TicTacToeGame {
 		int position;
 		int posiToWin = computerWinningPosition();
 		int posiToBlock = blockPosition();
-		if (posiToWin != 0 ) {
+		if (posiToWin != 0) {
 			position = posiToWin;
-		} 
-		else if (posiToBlock != 0 ) {
+		} else if (posiToBlock != 0) {
 			position = posiToBlock;
-		} 
-		else {
+		} else {
 			int choice = choicesIfNeitherIsWinning();
 			if (choice != 0) {
 				position = choice;
-			} else
-			{
+			} else {
 				position = (int) Math.floor(Math.random() * 10) % 10;
 				while (board[position] != ' ') {
 					position = (int) Math.floor(Math.random() * 10) % 10;
@@ -145,14 +142,18 @@ public class TicTacToeGame {
 					&& winnerFound != true) {
 				System.out.println("It is a tie , no one won");
 				flag = false;
-				
+
 				break;
 			}
 		}
 		if (symbol == playerSymbol && flag == true) {
 			System.out.println("Player won");
-		} else if (symbol == computerSymbol && flag == true){
+		} else if (symbol == computerSymbol && flag == true) {
 			System.out.println("Computer won");
+		}
+		else
+		{
+			
 		}
 	}
 
@@ -191,116 +192,165 @@ public class TicTacToeGame {
 		int positionToBlock = 0;
 		// block position in row 1
 		if (board[1] == playerSymbol && board[2] == playerSymbol && board[3] == ' ') {
-			positionToBlock = 3;}
+			positionToBlock = 3;
+		}
 		if (board[2] == playerSymbol && board[3] == playerSymbol && board[1] == ' ') {
-			positionToBlock = 1;}
+			positionToBlock = 1;
+		}
 		if (board[1] == playerSymbol && board[3] == playerSymbol && board[2] == ' ') {
-			positionToBlock = 2;}
+			positionToBlock = 2;
+		}
 		// block position in row 2
 		if (board[4] == playerSymbol && board[5] == playerSymbol && board[6] == ' ') {
-			positionToBlock = 6;}
+			positionToBlock = 6;
+		}
 		if (board[4] == playerSymbol && board[6] == playerSymbol && board[5] == ' ') {
-			positionToBlock = 5;}
+			positionToBlock = 5;
+		}
 		if (board[5] == playerSymbol && board[6] == playerSymbol && board[4] == ' ') {
-			positionToBlock = 4;}
+			positionToBlock = 4;
+		}
 		// block position in row 3
 		if (board[7] == playerSymbol && board[8] == playerSymbol && board[9] == ' ') {
-			positionToBlock = 9;}
+			positionToBlock = 9;
+		}
 		if (board[7] == playerSymbol && board[9] == playerSymbol && board[8] == ' ') {
-			positionToBlock = 8;}
+			positionToBlock = 8;
+		}
 		if (board[8] == playerSymbol && board[9] == playerSymbol && board[7] == ' ') {
-			positionToBlock = 7;}
+			positionToBlock = 7;
+		}
 		// block position in column 1
 		if (board[1] == playerSymbol && board[4] == playerSymbol && board[7] == ' ') {
-			positionToBlock = 7;}
+			positionToBlock = 7;
+		}
 		if (board[1] == playerSymbol && board[7] == playerSymbol && board[4] == ' ') {
-			positionToBlock = 4;}
+			positionToBlock = 4;
+		}
 		if (board[4] == playerSymbol && board[7] == playerSymbol && board[1] == ' ') {
-			positionToBlock = 1;}
+			positionToBlock = 1;
+		}
 		// block position in column 2
 		if (board[2] == playerSymbol && board[5] == playerSymbol && board[8] == ' ') {
-			positionToBlock = 8;}
+			positionToBlock = 8;
+		}
 		if (board[2] == playerSymbol && board[8] == playerSymbol && board[5] == ' ') {
-			positionToBlock = 5;}
+			positionToBlock = 5;
+		}
 		if (board[5] == playerSymbol && board[8] == playerSymbol && board[2] == ' ') {
-			positionToBlock = 8;}
+			positionToBlock = 2;
+		}
 		// block position in column 3
 		if (board[3] == playerSymbol && board[6] == playerSymbol && board[9] == ' ') {
-			positionToBlock = 9;}
+			positionToBlock = 9;
+		}
 		if (board[3] == playerSymbol && board[9] == playerSymbol && board[6] == ' ') {
-			positionToBlock = 6;}
+			positionToBlock = 6;
+		}
 		if (board[6] == playerSymbol && board[9] == playerSymbol && board[3] == ' ') {
-			positionToBlock = 3;}
+			positionToBlock = 3;
+		}
 		// block position in diagnol 1
 		if (board[1] == playerSymbol && board[5] == playerSymbol && board[9] == ' ') {
-			positionToBlock = 9;}
+			positionToBlock = 9;
+		}
 		if (board[5] == playerSymbol && board[9] == playerSymbol && board[1] == ' ') {
-			positionToBlock = 1;}
+			positionToBlock = 1;
+		}
 		if (board[1] == playerSymbol && board[9] == playerSymbol && board[5] == ' ') {
-			positionToBlock = 5;}
+			positionToBlock = 5;
+		}
 		// block position in diagnol 2
 		if (board[3] == playerSymbol && board[5] == playerSymbol && board[7] == ' ') {
-			positionToBlock = 7;}
+			positionToBlock = 7;
+		}
 		if (board[3] == playerSymbol && board[7] == playerSymbol && board[5] == ' ') {
-			positionToBlock = 5;}
+			positionToBlock = 5;
+		}
 		if (board[5] == playerSymbol && board[7] == playerSymbol && board[3] == ' ') {
-			positionToBlock = 3;}
+			positionToBlock = 3;
+		}
 
 		return positionToBlock;
 	}
 
-	//this method returns position number if there are chances of computer winning the game
+	// this method returns position number if there are chances of computer winning
+	// the game
 	public static int computerWinningPosition() {
 		int winningPosition = 0;
 		// finding winning condition for all rows , columns and diagnols
 		if (board[1] == computerSymbol && board[2] == computerSymbol && board[3] == ' ') {
-			winningPosition = 3;}
+			winningPosition = 3;
+		}
 		if (board[2] == computerSymbol && board[3] == computerSymbol && board[1] == ' ') {
-			winningPosition = 1;}
+			winningPosition = 1;
+		}
 		if (board[1] == computerSymbol && board[3] == computerSymbol && board[2] == ' ') {
-			winningPosition = 2;}
+			winningPosition = 2;
+		}
 		if (board[4] == computerSymbol && board[5] == computerSymbol && board[6] == ' ') {
-			winningPosition = 6;}
+			winningPosition = 6;
+		}
 		if (board[4] == computerSymbol && board[6] == computerSymbol && board[5] == ' ') {
-			winningPosition = 5;}
+			winningPosition = 5;
+		}
 		if (board[5] == computerSymbol && board[6] == computerSymbol && board[4] == ' ') {
-			winningPosition = 4;}
+			winningPosition = 4;
+		}
 		if (board[7] == computerSymbol && board[8] == computerSymbol && board[9] == ' ') {
-			winningPosition = 9;}
+			winningPosition = 9;
+		}
 		if (board[7] == computerSymbol && board[9] == computerSymbol && board[8] == ' ') {
-			winningPosition = 8;}
+			winningPosition = 8;
+		}
 		if (board[8] == computerSymbol && board[9] == computerSymbol && board[7] == ' ') {
-			winningPosition = 7;}
+			winningPosition = 7;
+		}
 		if (board[1] == computerSymbol && board[4] == computerSymbol && board[7] == ' ') {
-			winningPosition = 7;}
+			winningPosition = 7;
+		}
 		if (board[1] == computerSymbol && board[7] == computerSymbol && board[4] == ' ') {
-			winningPosition = 4;}
+			winningPosition = 4;
+		}
 		if (board[4] == computerSymbol && board[7] == computerSymbol && board[1] == ' ') {
-			winningPosition = 1;}
+			winningPosition = 1;
+		}
 		if (board[2] == computerSymbol && board[5] == computerSymbol && board[8] == ' ') {
-			winningPosition = 8;}
+			winningPosition = 8;
+		}
 		if (board[2] == computerSymbol && board[8] == computerSymbol && board[5] == ' ') {
-			winningPosition = 5;}
+			winningPosition = 5;
+		}
 		if (board[5] == computerSymbol && board[8] == computerSymbol && board[2] == ' ') {
-			winningPosition = 8;}
+			winningPosition = 2;
+		}
 		if (board[3] == computerSymbol && board[6] == computerSymbol && board[9] == ' ') {
-			winningPosition = 9;}
+			winningPosition = 9;
+		}
 		if (board[3] == computerSymbol && board[9] == computerSymbol && board[6] == ' ') {
-			winningPosition = 6;}
+			winningPosition = 6;
+		}
 		if (board[6] == computerSymbol && board[9] == computerSymbol && board[3] == ' ') {
-			winningPosition = 3;}
+			winningPosition = 3;
+		}
 		if (board[1] == computerSymbol && board[5] == computerSymbol && board[9] == ' ') {
-			winningPosition = 9;}
+			winningPosition = 9;
+		}
 		if (board[5] == computerSymbol && board[9] == computerSymbol && board[1] == ' ') {
-			winningPosition = 1;}
+			winningPosition = 1;
+		}
 		if (board[1] == computerSymbol && board[9] == computerSymbol && board[5] == ' ') {
-			winningPosition = 5;}
+			winningPosition = 5;
+		}
 		if (board[3] == computerSymbol && board[5] == computerSymbol && board[7] == ' ') {
-			winningPosition = 7;}
+			winningPosition = 7;
+		}
 		if (board[3] == computerSymbol && board[7] == computerSymbol && board[5] == ' ') {
-			winningPosition = 5;}
+			winningPosition = 5;
+		}
 		if (board[5] == computerSymbol && board[7] == computerSymbol && board[3] == ' ') {
-			winningPosition = 3;}
+			winningPosition = 3;
+		}
 
 		return winningPosition;
 	}
@@ -318,25 +368,21 @@ public class TicTacToeGame {
 			firstChoice = 9;
 		return firstChoice;
 	}
-	
+
 	// return position for subsequent choices after firstchoice
-		public static int subsequentChoices() {
-			int subsequentChoice = 0;
-			if(board[5]==' ')
-			{
-				subsequentChoice =5;
-			}
-			else
-			{
+	public static int subsequentChoices() {
+		int subsequentChoice = 0;
+		if (board[5] == ' ') {
+			subsequentChoice = 5;
+		} else {
 			if (board[4] == ' ')
 				subsequentChoice = 4;
 			if (board[6] == ' ')
 				subsequentChoice = 6;
-						}
-				
-			return subsequentChoice;
 		}
 
+		return subsequentChoice;
+	}
 
 	// return first and subsequent choices if neither is winning
 	public static int choicesIfNeitherIsWinning() {
